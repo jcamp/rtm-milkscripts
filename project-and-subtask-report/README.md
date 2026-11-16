@@ -2,11 +2,15 @@
 
 A script for [Remember The Milk MilkScript](https://www.rememberthemilk.com/services/milkscript/).
 
+![Run the script](images/run-script.png)
+
 [`project-report.js`](project-report.js) is an **unchanged copy of the working RTM script** supplied by the author. It reports incomplete projects and recursively nested subtasks, together with overdue standalone tasks.
 
 The report includes a summary of overdue main tasks and overdue subtasks, shows source list names and links to each task, and preserves the original subtask hierarchy and order. Overdue standalone tasks appear first, followed by projects ordered by the earliest overdue date in the project. Other projects follow alphabetically.
 
 The script creates or reuses one report task in a configured RTM list. The report task's title carries the report date. A separate dated note is kept for each day, and subsequent runs on the same day update that day's note. The note heading includes the run time.
+
+![Script settings](images/script%20dialogue%20box.png)
 
 ### Installation
 
