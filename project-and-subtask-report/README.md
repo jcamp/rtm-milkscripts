@@ -4,11 +4,40 @@ A script for [Remember The Milk MilkScript](https://www.rememberthemilk.com/serv
 
 ![Run the script](images/run-script.png)
 
-[`project-report.js`](project-report.js) is an **unchanged copy of the working RTM script** supplied by the author. It reports incomplete projects and recursively nested subtasks, together with overdue standalone tasks.
+## Project and Subtask Report
 
-The report includes a summary of overdue main tasks and overdue subtasks, shows source list names and links to each task, and preserves the original subtask hierarchy and order. Overdue standalone tasks appear first, followed by projects ordered by the earliest overdue date in the project. Other projects follow alphabetically.
+Keep track of overdue tasks across all your Remember The Milk projects, including projects with multiple levels of nested subtasks.
 
-The script creates or reuses one report task in a configured RTM list. The report task's title carries the report date. A separate dated note is kept for each day, and subsequent runs on the same day update that day's note. The note heading includes the run time.
+Rather than simply listing overdue tasks, this MilkScript produces a **structured project report** that shows what needs attention, where it belongs and the outstanding work associated with it.
+
+### Key features
+
+- **Complete project hierarchy:** Displays projects and all their incomplete subtasks, including subtasks within subtasks, to any nesting depth.
+- **Two reporting modes:**
+  - **OVERDUE:** Shows only projects where the main task or at least one incomplete subtask is overdue. Includes all remaining incomplete subtasks within those projects for context.
+  - **ALL:** Shows every project containing incomplete subtasks, whether overdue or not.
+- **Overdue standalone tasks:** Included automatically in both modes, in a separate section at the beginning of the report.
+- **Intelligent sorting:**
+  - Standalone overdue tasks are sorted by due date, oldest first.
+  - Projects containing overdue work are sorted by the **earliest overdue date anywhere in their hierarchy**, even if the main task itself isn't overdue.
+  - Projects without overdue work appear afterwards, alphabetically.
+  - Subtasks retain their original Remember The Milk order and hierarchy.
+- **Useful summary:** Separately counts overdue main tasks, overdue subtasks, total overdue tasks, projects, standalone overdue tasks, tasks displayed and tasks without due dates.
+- **Direct task links:** Open any task directly in Remember The Milk, with its original list name shown beside main tasks.
+- **Two output formats:** Choose Markdown for formatted headings, links and nested lists, or plain text for simpler viewing and copying.
+- **Completed tasks excluded:** Reports only outstanding work without changing the original tasks.
+
+### Daily reports without clutter
+
+The script maintains a single report task in your chosen Remember The Milk list.
+
+- The report task title includes the date of the latest run.
+- Each day's report is stored as a separate dated note.
+- Running the script again on the same day **updates the existing note** rather than creating a duplicate.
+- Each note records the latest run time.
+- Previous daily reports remain available for reference.
+
+The result is a practical overview of overdue work, with enough project context to help you decide what to tackle next.
 
 ![Script settings](images/script%20dialogue%20box.png)
 
