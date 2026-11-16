@@ -49,6 +49,8 @@ When copying Markdown from RTM into another editor, **Ctrl+Shift+V** (paste as p
 
 See [`example-report.md`](example-report.md) for an illustrative report using fictional tasks.
 
+![Sample Report](images/sample-report.png)
+
 ### Safety and limitations
 
 - The script does not change source tasks. It changes only the report task title and its notes.
