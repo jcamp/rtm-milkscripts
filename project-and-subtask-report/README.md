@@ -31,7 +31,7 @@ Rather than simply listing overdue tasks, this MilkScript produces a **structure
 
 The script maintains a single report task in your chosen Remember The Milk list.
 
-- The report task title includes the date of the latest run.
+- The report task keeps its fixed name, while each daily note records its date.
 - Each day's report is stored as a separate dated note.
 - Running the script again on the same day **updates the existing note** rather than creating a duplicate.
 - Each note records the latest run time.
