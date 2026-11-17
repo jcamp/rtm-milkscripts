@@ -13,7 +13,7 @@
  *
  * OUTPUT
  *   Keep a single report task in the named destination list.
- *   The task title shows the date of its last successful run.
+ *   The report task retains its fixed name.
  *   Create one note per calendar day, updating that note on later runs.
  *   The note heading records the date and time of the latest run.
  *
@@ -80,8 +80,8 @@ function isReportTask(task) {
       /^\d{4}-\d{2}-\d{2}$/.test(name.slice(REPORT_NAME.length + 3)));
 }
 
-function reportTaskName(date) {
-  return REPORT_NAME + ' | ' + date;
+function reportTaskName() {
+  return REPORT_NAME;
 }
 
 /* Return a sortable date in the account's local time. */
@@ -484,7 +484,7 @@ function saveReport(result) {
 
   // Reuse existing report task to retain the previous daily notes.
   const report = candidates.length ? candidates[0] :
-    matchingLists[0].addTask(reportTaskName(result.date));
+    matchingLists[0].addTask(reportTaskName());
 
   const allNotes = report.getNotes();
   if (!Array.isArray(allNotes)) {
@@ -509,8 +509,8 @@ function saveReport(result) {
     console.log('Created report note: ' + result.date);
   }
 
-  // Rename only after the note operation succeeds. Keep one report task.
-  const newName = reportTaskName(result.date);
+  // Restore the fixed report task name after updating its daily note.
+  const newName = reportTaskName();
   if (report.getName() !== newName) report.setName(newName);
 }
 
